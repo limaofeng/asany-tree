@@ -58,7 +58,7 @@ const data = [
         type: 'directory',
         children: [{ key: '15', title: '苏烈', type: 'file' }],
       },
-      // { key: '121', title: '所得', type: 'file' },
+      { key: '121', title: '所得', type: 'file' },
     ],
   },
   { key: '2', title: '老王', type: 'file' },
