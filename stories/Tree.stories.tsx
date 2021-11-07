@@ -52,7 +52,7 @@ const data = [
 ];
 
 const Template: Story<any> = (args) => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<any[]>([]);
 
   const handleDragEnter = (e: any) => {
     console.log('DragEnter', e);
