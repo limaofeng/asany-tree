@@ -1,3 +1,12 @@
+## [0.1.5](https://github.com/limaofeng/asany-tree/compare/v0.1.4...v0.1.5) (2021-11-07)
+
+
+### Bug Fixes
+
+*  打包时，不应该注入 NODE_ENV ([8342787](https://github.com/limaofeng/asany-tree/commit/8342787ba62bd414a0ca7c116a51dd4d1e5e668f))
+
+
+
 ## [0.1.4](https://github.com/limaofeng/asany-tree/compare/v0.1.3...v0.1.4) (2021-11-07)
 
 
