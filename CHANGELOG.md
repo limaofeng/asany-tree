@@ -1,3 +1,13 @@
+## [0.1.3](https://github.com/limaofeng/asany-tree/compare/v0.1.2...v0.1.3) (2021-11-07)
+
+
+### Bug Fixes
+
+* 解决  [...Array(level - 1)].map 编译问题 ([4aaf94b](https://github.com/limaofeng/asany-tree/commit/4aaf94b3b9b68c886fc03a50338e027fbb8e8cd5))
+* 解决样式冲突 ([e2aa28a](https://github.com/limaofeng/asany-tree/commit/e2aa28a5e855b8307bd1a7d4c94571e1d8db3248))
+
+
+
 ## [0.1.2](https://github.com/limaofeng/asany-tree/compare/v0.1.1...v0.1.2) (2021-11-07)
 
 
