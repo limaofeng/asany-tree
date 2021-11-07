@@ -48,11 +48,6 @@ export interface TreeEvent {
   key: string;
 }
 
-interface DropEvent extends TreeEvent {
-  dropNode: NodeData;
-  dropPosition: number;
-}
-
 type DragNode = NodeData;
 
 export type AllowDropInfo = {
@@ -69,7 +64,7 @@ interface DragEnterEvent extends TreeEvent {
 
 export type OnDragEnter = EventCallback<DragEnterEvent>;
 
-interface DropEvent extends TreeEvent {
+export interface DropEvent extends TreeEvent {
   node: NodeData;
   dragNode: NodeData;
   dropPosition: number;

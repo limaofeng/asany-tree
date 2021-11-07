@@ -18,30 +18,7 @@ const meta: Meta = {
   },
 };
 
-const dispatchAction = (data, event) => {
-  switch (event.type) {
-    case 'update':
-      return Default.args.onChange(data, event);
-    case 'drop':
-      return Default.args.onDrop(data, event);
-    case 'drag':
-      return Default.args.onDrag(data, event);
-    case 'sort':
-      return Default.args.onSort(data, event);
-    case 'remove':
-      return Default.args.onRemove(data, event);
-  }
-};
-
 export default meta;
-
-const defaultStyle = {
-  border: '1px dashed gray',
-  padding: '0.5rem 1rem',
-  marginBottom: '.5rem',
-  marginRight: '.5rem',
-  backgroundColor: 'white',
-};
 
 const data = [
   {
@@ -75,20 +52,15 @@ const data = [
 ];
 
 const Template: Story<any> = (args) => {
-  const [items, setItems] = useState(data);
+  const [items] = useState(data);
 
-  const handleChange = (data, event) => {
-    setItems(data);
-    dispatchAction(data, event);
-  };
-
-  const handleDragEnter = (e) => {
+  const handleDragEnter = (e: any) => {
     console.log('DragEnter', e);
   };
 
   Default.args = args;
 
-  const handleSelect = (e) => {
+  const handleSelect = (e: any) => {
     console.log('select', e);
   };
 

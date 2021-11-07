@@ -50,7 +50,15 @@ function getDropPosition(
 }
 
 const nodeRender = React.forwardRef(function (
-  { data, index, style, drag, className, indicator, level }: SortableItemProps,
+  {
+    data,
+    index,
+    style,
+    drag,
+    className,
+    indicator,
+    level,
+  }: SortableItemProps<any>,
   itemRef: any
 ) {
   const node = (data as any) as NodeData;

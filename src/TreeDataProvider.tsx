@@ -29,10 +29,10 @@ import type {
 } from './typings';
 
 const reducer = (state: TreeDataState, action: TreeDataAction) => {
-  if (action.type == 'data') {
+  if (action.type === 'data') {
     return { ...state, treeData: action.payload };
   }
-  if (action.type == 'version') {
+  if (action.type === 'version') {
     return { ...state, version: action.payload };
   }
   if (action.type === 'select') {
@@ -222,18 +222,18 @@ function TreeDataProvider(props: TreeDataProviderProps) {
   const store = useStore({ ...state, version, allowDrop, onDrop });
 
   useEffect(() => {
-    if (version == store.getState().version) {
+    if (version === store.getState().version) {
       return;
     }
     store.dispatch({ type: 'version', payload: version });
-  }, [version]);
+  }, [store, version]);
 
   useEffect(() => {
-    if (state.treeData == store.getState().treeData) {
+    if (state.treeData === store.getState().treeData) {
       return;
     }
     store.dispatch({ type: 'data', payload: state.treeData });
-  }, [state.treeData]);
+  }, [state.treeData, store]);
 
   useEffect(() => {
     if (!expandedKeys) {
