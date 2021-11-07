@@ -1,0 +1,109 @@
+.asany-treeview {
+  &-subnode,
+  &-node {
+    &.sortable-item-indicator-drag-over {
+      background-color: rgb(183, 223, 248);
+      border-top: 2px #5295e7 solid;
+      border-bottom: 2px #5295e7 solid;
+      cursor: move;
+      .asany-treeview-node.selected {
+        background-color: transparent;
+      }
+    }
+    &.sortable-item-indicator-drag-over-top {
+      box-sizing: border-box;
+      background-color: rgb(183, 223, 248);
+      border-top: 2px #5295e7 solid;
+      cursor: move;
+      .asany-treeview-node.selected {
+        background-color: transparent;
+      }
+    }
+    &.sortable-item-indicator-drag-over-bottom {
+      box-sizing: border-box;
+      background-color: rgb(183, 223, 248);
+      border-bottom: 2px #5295e7 solid;
+      cursor: move;
+      .asany-treeview-node.selected {
+        background-color: transparent;
+      }
+    }
+  }
+  &-subnode {
+    .sortable-container.hide {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .asany-treeview-node .monaco-tl-indent > .indent-guide {
+      opacity: 1;
+      border-color: #bbbbbb;
+    }
+  }
+
+  &-node {
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;
+    touch-action: none;
+    padding-left: 4px;
+
+    &.selected {
+      color: #2e2e2e;
+      background-color: #f0f0f0;
+    }
+
+    &.sortable-item-dragging {
+      cursor: no-drop;
+      background-color: rgb(206, 234, 252);
+    }
+
+    .monaco-tl-twistie {
+      padding-right: 6px;
+      flex-shrink: 0;
+      width: 16px;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(3px);
+    }
+    .monaco-tl-row {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      position: relative;
+    }
+
+    .monaco-tl-indent {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 16px;
+      pointer-events: none;
+
+      & > .indent-guide {
+        display: inline-block;
+        box-sizing: border-box;
+        height: 100%;
+        border-left: 1px solid transparent;
+        transition: border-color 0.1s linear;
+        opacity: 0;
+
+        &.active {
+          opacity: 1;
+          border-color: #858585 !important;
+        }
+      }
+    }
+
+    .monaco-tl-contents {
+      flex: 1;
+
+      .monaco-icon-label {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
