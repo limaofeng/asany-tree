@@ -17,6 +17,26 @@ type TreeNodeProps = {
   isDirectory: boolean;
 };
 
+function renderIndentGuide(
+  nodeKey: string,
+  size: number,
+  hasIndentActive: (index: number) => void
+) {
+  const indents = [];
+  for (let i = 0; i < size; i++) {
+    indents.push(
+      <div
+        key={`${nodeKey}-${i}`}
+        className={classnames('indent-guide', {
+          active: hasIndentActive(i),
+        })}
+        style={{ width: 8 }}
+      />
+    );
+  }
+  return indents;
+}
+
 function TreeNode(props: TreeNodeProps, ref: any) {
   const { children, level, icon, className, isDirectory, nodeKey } = props;
 
@@ -91,15 +111,7 @@ function TreeNode(props: TreeNodeProps, ref: any) {
     >
       <div className="monaco-tl-row">
         <div className="monaco-tl-indent" style={{ width: (level - 1) * 8 }}>
-          {[...Array(level - 1)].map((_, i) => (
-            <div
-              key={`${nodeKey}-${i}`}
-              className={classnames('indent-guide', {
-                active: hasIndentActive(i),
-              })}
-              style={{ width: 8 }}
-            ></div>
-          ))}
+          {renderIndentGuide(nodeKey, level - 1, hasIndentActive)}
         </div>
         <div
           style={{ paddingLeft: level * 8 - 2 }}
@@ -110,7 +122,7 @@ function TreeNode(props: TreeNodeProps, ref: any) {
         </div>
         <div className="monaco-tl-contents">
           <div className="monaco-icon-label">
-            <div style={{ height: 24, paddingRight: 6 }}>{icon}</div>
+            {icon}
             <div className="monaco-icon-label-container">
               <span className="monaco-icon-name-container">
                 <span className="label-name">
