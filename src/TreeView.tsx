@@ -125,7 +125,7 @@ const nodeRender = React.forwardRef(function (
       nodeKey={data.id}
       isDirectory={false}
       level={level}
-      icon={<File />}
+      icon={data.icon || <File />}
       ref={itemRef}
       className={classnames(className, {
         'sortable-item-indicator-drag-over-bottom': indicator > 0,
@@ -133,7 +133,7 @@ const nodeRender = React.forwardRef(function (
       })}
       style={{ ...defaultStyle, ...style }}
     >
-      {data.id} - {(data as any).title}
+      {(data as any).title}
     </TreeNode>
   );
 });
@@ -291,8 +291,6 @@ function TreeView(props: TreeViewProps) {
     setData(props.treeData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.treeData]);
-
-  console.log('treeData', props.treeData);
 
   return (
     <TreeDataProvider

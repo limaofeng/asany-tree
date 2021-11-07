@@ -38,9 +38,12 @@ const InternalContainer = forwardRef(
           ref={itemRef}
           className={itemClassName}
           level={level}
-          icon={!!itemData.children?.length ? <Folder /> : <File />}
+          icon={
+            itemData.icon ||
+            (!!itemData.children?.length ? <Folder /> : <File />)
+          }
         >
-          {itemData.id} - {itemData.title}
+          {itemData.title}
         </TreeNode>
         <div
           ref={boxRef}

@@ -1,5 +1,6 @@
 export type TreeNode = {
   key: string;
+  icon?: React.ReactNode;
   title: React.ReactNode;
   isLeaf?: boolean;
   children?: TreeNode[];
