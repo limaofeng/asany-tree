@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/limaofeng/asany-tree/compare/v0.1.3...v0.1.4) (2021-11-07)
+
+
+### Bug Fixes
+
+* treeData 更新 BUG ([b01d62e](https://github.com/limaofeng/asany-tree/commit/b01d62e1cf05cbdf1f56386daed9abb04b760284))
+
+
+
 ## [0.1.3](https://github.com/limaofeng/asany-tree/compare/v0.1.2...v0.1.3) (2021-11-07)
 
 
