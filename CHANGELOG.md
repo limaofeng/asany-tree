@@ -1,3 +1,12 @@
+## [0.1.6](https://github.com/limaofeng/asany-tree/compare/v0.1.5...v0.1.6) (2021-11-07)
+
+
+### Bug Fixes
+
+* 去掉调试时的 ID 显示 ([244dfe7](https://github.com/limaofeng/asany-tree/commit/244dfe774cea70331108c5029d9d56111e95e3cf))
+
+
+
 ## [0.1.5](https://github.com/limaofeng/asany-tree/compare/v0.1.4...v0.1.5) (2021-11-07)
 
 
