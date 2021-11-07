@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Meta, Story } from '@storybook/react';
 import Tree from '../src';
 import { DndProvider } from 'react-dnd';
@@ -52,7 +52,7 @@ const data = [
 ];
 
 const Template: Story<any> = (args) => {
-  const [items] = useState(data);
+  const [items, setItems] = useState([]);
 
   const handleDragEnter = (e: any) => {
     console.log('DragEnter', e);
@@ -63,6 +63,10 @@ const Template: Story<any> = (args) => {
   const handleSelect = (e: any) => {
     console.log('select', e);
   };
+
+  useEffect(() => {
+    setItems(data);
+  }, []);
 
   return (
     <DndProvider backend={HTML5Backend}>

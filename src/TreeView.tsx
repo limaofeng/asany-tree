@@ -284,6 +284,16 @@ function TreeView(props: TreeViewProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (data === props.treeData) {
+      return;
+    }
+    setData(props.treeData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.treeData]);
+
+  console.log('treeData', props.treeData);
+
   return (
     <TreeDataProvider
       state={{
