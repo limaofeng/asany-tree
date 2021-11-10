@@ -29,6 +29,9 @@ import type {
 } from './typings';
 
 const reducer = (state: TreeDataState, action: TreeDataAction) => {
+  if (action.type === 'update') {
+    return { ...state, ...action.payload };
+  }
   if (action.type === 'data') {
     return { ...state, treeData: action.payload };
   }
@@ -218,8 +221,31 @@ function TreeDataProvider(props: TreeDataProviderProps) {
     onDrop,
     onDragEnter,
     onSelect,
+    iconRender,
+    contentRender,
   } = props;
-  const store = useStore({ ...state, version, allowDrop, onDrop });
+  const store = useStore({
+    ...state,
+    version,
+    allowDrop,
+    onDrop,
+    iconRender,
+    contentRender,
+  });
+
+  useEffect(() => {
+    if (iconRender === store.getState().iconRender) {
+      return;
+    }
+    store.dispatch({ type: 'update', payload: { iconRender } });
+  }, [store, iconRender]);
+
+  useEffect(() => {
+    if (contentRender === store.getState().contentRender) {
+      return;
+    }
+    store.dispatch({ type: 'update', payload: { contentRender } });
+  }, [store, contentRender]);
 
   useEffect(() => {
     if (version === store.getState().version) {

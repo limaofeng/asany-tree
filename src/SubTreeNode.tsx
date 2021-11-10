@@ -3,7 +3,6 @@ import React, { forwardRef } from 'react';
 import AsanySortable from '@asany/sortable';
 import classnames from 'classnames';
 
-import { File, Folder } from './icon';
 import { useSelector } from './TreeDataProvider';
 import TreeNode from './TreeNode';
 
@@ -38,13 +37,7 @@ const InternalContainer = forwardRef(
           ref={itemRef}
           className={itemClassName}
           level={level}
-          icon={
-            itemData.icon ||
-            (!!itemData.children?.length ? <Folder /> : <File />)
-          }
-        >
-          {itemData.title}
-        </TreeNode>
+        />
         <div
           ref={boxRef}
           className={classnames(className, 'asany-treeview-subnode-list', {

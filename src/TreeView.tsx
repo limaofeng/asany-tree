@@ -6,7 +6,6 @@ import AsanySortable, {
 } from '@asany/sortable';
 import classnames from 'classnames';
 
-import { File } from './icon';
 import SubTreeNode from './SubTreeNode';
 import TreeNode from './TreeNode';
 import TreeDataProvider, {
@@ -64,6 +63,7 @@ const nodeRender = React.forwardRef(function (
   const node = (data as any) as NodeData;
   const dragging = useSortableSelector((state) => state.dragging);
   const context = useTreeDataContext();
+
   useSelector((state) => state.version);
 
   drag(itemRef);
@@ -125,16 +125,13 @@ const nodeRender = React.forwardRef(function (
       nodeKey={data.id}
       isDirectory={false}
       level={level}
-      icon={data.icon || <File />}
       ref={itemRef}
       className={classnames(className, {
         'sortable-item-indicator-drag-over-bottom': indicator > 0,
         'sortable-item-indicator-drag-over-top': indicator < 0,
       })}
       style={{ ...defaultStyle, ...style }}
-    >
-      {(data as any).title}
-    </TreeNode>
+    />
   );
 });
 
@@ -168,6 +165,8 @@ function TreeView(props: TreeViewProps) {
     allowDrop,
     onExpand,
     onDragEnter,
+    iconRender,
+    contentRender,
   } = props;
 
   const [version, setVersion] = useState(0);
@@ -300,6 +299,8 @@ function TreeView(props: TreeViewProps) {
         selectedKeys: defaultSelectedKeys!,
         expandedKeys: defaultExpandedKeys!,
       }}
+      iconRender={iconRender}
+      contentRender={contentRender}
       version={version}
       expandedKeys={expandedKeys}
       selectedKeys={selectedKeys}

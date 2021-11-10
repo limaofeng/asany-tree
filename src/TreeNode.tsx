@@ -2,15 +2,14 @@ import React, { CSSProperties, useCallback } from 'react';
 
 import classnames from 'classnames';
 
-import { ClosedDirectory, OpenDirectory } from './icon';
 import { useSelector, useTreeDataContext } from './TreeDataProvider';
 import { NodeData } from './typings';
+import { ClosedDirectory, File, Folder, OpenDirectory } from './icon';
 
 type TreeNodeProps = {
   level: number;
   nodeKey: string;
   data: NodeData;
-  icon: React.ReactNode;
   className?: string;
   style?: CSSProperties;
   children?: React.ReactNode;
@@ -37,12 +36,41 @@ function renderIndentGuide(
   return indents;
 }
 
+function defaultIconRender(node: any, { isDirectory }: any) {
+  if (node.icon) {
+    return node.icon;
+  }
+  return !!isDirectory ? <Folder /> : <File />;
+}
+
+function defaultContentRender(node: NodeData) {
+  return (
+    <>
+      <span className="monaco-icon-name-container">
+        <span className="label-name">
+          <span className="monaco-highlighted-label">
+            <span>{node.title}</span>
+          </span>
+        </span>
+      </span>
+      <span className="monaco-icon-description-container"></span>
+    </>
+  );
+}
+
 function TreeNode(props: TreeNodeProps, ref: any) {
-  const { children, level, icon, className, isDirectory, nodeKey } = props;
+  const { level, className, isDirectory, nodeKey, data } = props;
 
   const context = useTreeDataContext();
   const opened = useSelector((state) => state.expandedKeys.includes(nodeKey));
   const selected = useSelector((state) => state.selectedKeys.includes(nodeKey));
+
+  const iconRender = useSelector(
+    (state) => state.iconRender || defaultIconRender
+  );
+  const contentRender = useSelector(
+    (state) => state.contentRender || defaultContentRender
+  );
 
   const toggleDisplay = useCallback(
     (e?: React.MouseEvent) => {
@@ -101,6 +129,8 @@ function TreeNode(props: TreeNodeProps, ref: any) {
     });
   }
 
+  console.log('iconRender Node', iconRender, contentRender);
+
   return (
     <div
       onClick={handleClick}
@@ -127,16 +157,9 @@ function TreeNode(props: TreeNodeProps, ref: any) {
         </div>
         <div className="monaco-tl-contents">
           <div className="monaco-icon-label">
-            {icon}
+            {iconRender && iconRender(data, { isDirectory, opened })}
             <div className="monaco-icon-label-container">
-              <span className="monaco-icon-name-container">
-                <span className="label-name">
-                  <span className="monaco-highlighted-label">
-                    <span>{children}</span>
-                  </span>
-                </span>
-              </span>
-              <span className="monaco-icon-description-container"></span>
+              {contentRender && contentRender(data)}
             </div>
           </div>
         </div>

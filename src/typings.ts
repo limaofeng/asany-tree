@@ -16,6 +16,13 @@ export type NodeData = TreeNode & {
   [key: string]: any;
 };
 
+export type IconRender = (
+  node: TreeNode,
+  state: { isDirectory: boolean; opened: boolean }
+) => React.ReactNode;
+
+export type ContentRender = (node: TreeNode) => React.ReactNode;
+
 export type TreeViewProps = {
   treeData: TreeNode[];
   /**
@@ -26,6 +33,14 @@ export type TreeViewProps = {
    * dragenter 触发时调用
    */
   onDragEnter?: OnDragEnter;
+  /**
+   * 图标渲染
+   */
+  iconRender?: IconRender;
+  /**
+   * 内容渲染
+   */
+  contentRender?: ContentRender;
   /**
    * drop 触发时调用
    */
@@ -101,6 +116,8 @@ export type TreeDataState = {
   treeData: Map<string, NodeData>;
   selectedKeys: string[];
   expandedKeys: string[];
+  iconRender?: IconRender;
+  contentRender?: ContentRender;
 };
 
 export type TreeDataProviderProps = {
@@ -116,10 +133,13 @@ export type TreeDataProviderProps = {
   onClick?: EventCallback<ClickEvent>;
   onSelect?: EventCallback<SelectEvent>;
   onOpenChange?: OpenCallback;
+  iconRender?: IconRender;
+  contentRender?: ContentRender;
 };
 
 export type TreeDataAction = {
   type:
+    | 'update'
     | 'version'
     | 'data'
     | 'select'
