@@ -65,6 +65,16 @@ function TreeNode(props: TreeNodeProps, ref: any) {
   const opened = useSelector((state) => state.expandedKeys.includes(nodeKey));
   const selected = useSelector((state) => state.selectedKeys.includes(nodeKey));
 
+  const subSelected = useSelector((state) => {
+    if (state.selectedKeys.includes(nodeKey)) {
+      return false;
+    }
+    const path = state.treeData.get(nodeKey)?.path;
+    return state.selectedKeys.some((key) => {
+      return state.treeData.get(key)?.path!.startsWith(path!);
+    });
+  });
+
   const iconRender = useSelector(
     (state) => state.iconRender || defaultIconRender
   );
@@ -129,8 +139,6 @@ function TreeNode(props: TreeNodeProps, ref: any) {
     });
   }
 
-  console.log('iconRender Node', iconRender, contentRender);
-
   return (
     <div
       onClick={handleClick}
@@ -140,6 +148,7 @@ function TreeNode(props: TreeNodeProps, ref: any) {
         className,
         `level-${level}`,
         {
+          sub_selected: subSelected,
           selected: selected,
         }
       )}
