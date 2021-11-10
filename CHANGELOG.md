@@ -1,3 +1,12 @@
+## [0.1.8](https://github.com/limaofeng/asany-tree/compare/v0.1.7...v0.1.8) (2021-11-10)
+
+
+### Features
+
+* 为 node 节点自动添加 sub_selected 类 ([af2a2de](https://github.com/limaofeng/asany-tree/commit/af2a2deb97811f6c489209a628d152498106e0a4))
+
+
+
 ## [0.1.7](https://github.com/limaofeng/asany-tree/compare/v0.1.6...v0.1.7) (2021-11-10)
 
 
