@@ -105,9 +105,14 @@ function TreeNode(props: TreeNodeProps, ref: any) {
     <div
       onClick={handleClick}
       ref={ref}
-      className={classnames('asany-treeview-node', className, {
-        selected: selected,
-      })}
+      className={classnames(
+        'asany-treeview-node',
+        className,
+        `level-${level}`,
+        {
+          selected: selected,
+        }
+      )}
     >
       <div className="monaco-tl-row">
         <div className="monaco-tl-indent" style={{ width: (level - 1) * 8 }}>
