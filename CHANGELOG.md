@@ -1,3 +1,13 @@
+## [0.1.7](https://github.com/limaofeng/asany-tree/compare/v0.1.6...v0.1.7) (2021-11-10)
+
+
+### Features
+
+* 为 node 节点添加 level-x 样式 ([ddd5fbe](https://github.com/limaofeng/asany-tree/commit/ddd5fbef48c1c8e5d50ae219259796e79e88078a))
+* 添加 IconRender 与 ContentRender ([0a8afa9](https://github.com/limaofeng/asany-tree/commit/0a8afa9cd0cb53f896a463b832278c716b049a95))
+
+
+
 ## [0.1.6](https://github.com/limaofeng/asany-tree/compare/v0.1.5...v0.1.6) (2021-11-07)
 
 
