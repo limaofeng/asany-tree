@@ -1,3 +1,12 @@
+## [0.1.9](https://github.com/limaofeng/asany-tree/compare/v0.1.8...v0.1.9) (2021-11-11)
+
+
+### Features
+
+*  为 ContentRender 添加 rowIndex 信息 ([14b0414](https://github.com/limaofeng/asany-tree/commit/14b0414c78f89d981e0c2831f37344e0adf29cdb))
+
+
+
 ## [0.1.8](https://github.com/limaofeng/asany-tree/compare/v0.1.7...v0.1.8) (2021-11-10)
 
 
