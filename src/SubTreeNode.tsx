@@ -18,6 +18,7 @@ const InternalContainer = forwardRef(
       children,
       className,
       level,
+      rowIndex,
       ...props
     }: any,
     boxRef: any
@@ -31,6 +32,7 @@ const InternalContainer = forwardRef(
         style={{ ...itemStyle, padding: 0 }}
       >
         <TreeNode
+          rowIndex={rowIndex}
           data={itemData}
           isDirectory={!!itemData.children?.length}
           nodeKey={nodeKey}

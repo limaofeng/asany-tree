@@ -100,6 +100,7 @@ const nodeRender = React.forwardRef(function (
         data={data}
         treeData={data.children}
         level={level}
+        rowIndex={index}
         itemRef={itemRef}
         className={classnames({
           'sortable-item-indicator-drag-over':
@@ -125,6 +126,7 @@ const nodeRender = React.forwardRef(function (
       nodeKey={data.id}
       isDirectory={false}
       level={level}
+      rowIndex={index}
       ref={itemRef}
       className={classnames(className, {
         'sortable-item-indicator-drag-over-bottom': indicator > 0,

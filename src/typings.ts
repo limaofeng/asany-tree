@@ -21,7 +21,12 @@ export type IconRender = (
   state: { isDirectory: boolean; opened: boolean }
 ) => React.ReactNode;
 
-export type ContentRender = (node: TreeNode) => React.ReactNode;
+export type ContentRender = (
+  node: TreeNode,
+  state: {
+    rowIndex: number;
+  }
+) => React.ReactNode;
 
 export type TreeViewProps = {
   treeData: TreeNode[];

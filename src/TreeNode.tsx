@@ -9,6 +9,7 @@ import { ClosedDirectory, File, Folder, OpenDirectory } from './icon';
 type TreeNodeProps = {
   level: number;
   nodeKey: string;
+  rowIndex: number;
   data: NodeData;
   className?: string;
   style?: CSSProperties;
@@ -59,7 +60,7 @@ function defaultContentRender(node: NodeData) {
 }
 
 function TreeNode(props: TreeNodeProps, ref: any) {
-  const { level, className, isDirectory, nodeKey, data } = props;
+  const { level, className, isDirectory, nodeKey, data, rowIndex } = props;
 
   const context = useTreeDataContext();
   const opened = useSelector((state) => state.expandedKeys.includes(nodeKey));
@@ -168,7 +169,7 @@ function TreeNode(props: TreeNodeProps, ref: any) {
           <div className="monaco-icon-label">
             {iconRender && iconRender(data, { isDirectory, opened })}
             <div className="monaco-icon-label-container">
-              {contentRender && contentRender(data)}
+              {contentRender && contentRender(data, { rowIndex })}
             </div>
           </div>
         </div>
