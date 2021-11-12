@@ -1,3 +1,12 @@
+## [0.1.11](https://github.com/limaofeng/asany-tree/compare/v0.1.10...v0.1.11) (2021-11-12)
+
+
+### Bug Fixes
+
+* 解决拖拽 bug ([0515b32](https://github.com/limaofeng/asany-tree/commit/0515b32d9277f06199f1771d20e042087ef00518))
+
+
+
 ## [0.1.10](https://github.com/limaofeng/asany-tree/compare/v0.1.9...v0.1.10) (2021-11-12)
 
 
