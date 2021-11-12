@@ -7,7 +7,7 @@ export type TreeNode = {
 };
 
 export type NodeData = TreeNode & {
-  path?: string;
+  _path?: string;
   level?: number;
   parentKey?: string;
   children?: NodeData[];

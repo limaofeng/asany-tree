@@ -70,9 +70,9 @@ function TreeNode(props: TreeNodeProps, ref: any) {
     if (state.selectedKeys.includes(nodeKey)) {
       return false;
     }
-    const path = state.treeData.get(nodeKey)?.path;
+    const path = state.treeData.get(nodeKey)?._path;
     return state.selectedKeys.some((key) => {
-      return state.treeData.get(key)?.path!.startsWith(path!);
+      return state.treeData.get(key)?._path!.startsWith(path!);
     });
   });
 
@@ -118,7 +118,7 @@ function TreeNode(props: TreeNodeProps, ref: any) {
     const parentSelectNodes = state.expandedKeys
       .map((key) => state.treeData!.get(key)!)
       .filter((item) => {
-        return my.path!.startsWith(item.path!);
+        return my._path!.startsWith(item._path!);
       });
     return parentSelectNodes;
   });

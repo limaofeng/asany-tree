@@ -139,7 +139,7 @@ class TreeDataStoreContext {
     }
     const event: SelectEvent = {
       key,
-      keyPath: item.path!,
+      keyPath: item._path!,
       node: item,
       selectedKeys: this._state.selectedKeys,
       domEvent: e,

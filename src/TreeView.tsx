@@ -143,8 +143,8 @@ function flat(datas: NodeData[], parent?: NodeData) {
     (node as any).id = node.key;
     (node as any).type = 'directory';
     node.parentKey = parent?.key;
-    node.path = parent?.path ? parent.path + node.key + '/' : node.key + '/';
-    node.level = node.path.split('/').length - 1;
+    node._path = parent?._path ? parent._path + node.key + '/' : node.key + '/';
+    node.level = node._path.split('/').length - 1;
     nodes.push(node);
     if (!node.children) {
       continue;
