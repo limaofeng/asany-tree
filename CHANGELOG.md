@@ -1,3 +1,12 @@
+## [0.1.10](https://github.com/limaofeng/asany-tree/compare/v0.1.9...v0.1.10) (2021-11-12)
+
+
+### Bug Fixes
+
+* 使用 _path 替换node 中的 path 字段，避免影响数据 ([eb6e3f8](https://github.com/limaofeng/asany-tree/commit/eb6e3f89ba4d0de482ba2ac46fa2a453ac39a710))
+
+
+
 ## [0.1.9](https://github.com/limaofeng/asany-tree/compare/v0.1.8...v0.1.9) (2021-11-11)
 
 
