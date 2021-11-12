@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@asany/sortable@^0.1.26":
-  version "0.1.26"
-  resolved "https://registry.npmjs.org/@asany/sortable/-/sortable-0.1.26.tgz#9e856213e370331192fa7360652fb20487b94678"
-  integrity sha512-QJHciCiXuFssFfsBrAOmCbZwAd0y5VJEXt0FtND0o5E7SfvUaZv32E8mFKM7tvsrK2PW0li+qrKwro9/5RuedA==
+"@asany/sortable@^0.1.27":
+  version "0.1.27"
+  resolved "https://registry.npmjs.org/@asany/sortable/-/sortable-0.1.27.tgz#a0aadbe0bcde46a14cd7e13290af399f87f0f82f"
+  integrity sha512-ty3kv0Nf9t6KHAaWxRmqxlL4hORpM75YrNKCLyvqhTY9sDBqtIKINBN/Utw6q4KCUAHmdnYH4Xxtzc6f1UfEKg==
   dependencies:
     immutability-helper "^3.1.1"
     lodash-es "^4.17.21"

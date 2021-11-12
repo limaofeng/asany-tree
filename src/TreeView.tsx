@@ -247,7 +247,6 @@ function TreeView(props: TreeViewProps) {
             });
           }
         }
-        console.log(newTreeData);
         onDrop && onDrop({ ...e, dropPosition: _dropPosition });
         return newTreeData;
       });
@@ -270,12 +269,15 @@ function TreeView(props: TreeViewProps) {
         e.node.index
       ),
     };
-    // console.log('AllowDrop:', info.node.pos, info.dragNode.pos, info);
     if (
       [...info.node.pos, '']
         .join('-')
         .startsWith([...info.dragNode.pos, ''].join('-'))
     ) {
+      console.log(
+        [...info.node.pos, ''].join('-'),
+        [...info.dragNode.pos, ''].join('-')
+      );
       return false;
     }
     if (!allowDrop) {
