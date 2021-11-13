@@ -1,3 +1,12 @@
+## [0.1.12](https://github.com/limaofeng/asany-tree/compare/v0.1.11...v0.1.12) (2021-11-13)
+
+
+### Features
+
+* 拖拽提示样式修改 ([61f9806](https://github.com/limaofeng/asany-tree/commit/61f980645bbc126118ffa78447da8658511cc7bb))
+
+
+
 ## [0.1.11](https://github.com/limaofeng/asany-tree/compare/v0.1.10...v0.1.11) (2021-11-12)
 
 
