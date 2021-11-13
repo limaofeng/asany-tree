@@ -83,8 +83,7 @@ const nodeRender = React.forwardRef(function (
   }, [index, indicator]);
 
   useEffect(() => {
-    if (isNaN(indicator)) {
-    } else {
+    if (!isNaN(indicator)) {
       context.emit('dragenter', {
         key: data.id,
         node: ({ ...data } as any) as NodeData,

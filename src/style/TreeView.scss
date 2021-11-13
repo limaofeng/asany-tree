@@ -1,31 +1,39 @@
 .asany-treeview {
   &-subnode,
   &-node {
-    &.sortable-item-indicator-drag-over {
-      background-color: rgb(183, 223, 248);
-      border-top: 2px #5295e7 solid;
-      border-bottom: 2px #5295e7 solid;
-      cursor: move;
-      .asany-treeview-node.selected {
-        background-color: transparent;
-      }
-    }
-    &.sortable-item-indicator-drag-over-top {
-      box-sizing: border-box;
-      background-color: rgb(183, 223, 248);
-      border-top: 2px #5295e7 solid;
-      cursor: move;
-      .asany-treeview-node.selected {
-        background-color: transparent;
-      }
-    }
+    &.sortable-item-indicator-drag-over,
+    &.sortable-item-indicator-drag-over-top,
     &.sortable-item-indicator-drag-over-bottom {
+      position: relative;
       box-sizing: border-box;
       background-color: rgb(183, 223, 248);
-      border-bottom: 2px #5295e7 solid;
       cursor: move;
       .asany-treeview-node.selected {
         background-color: transparent;
+      }
+    }
+    &.sortable-item-indicator-drag-over,
+    &.sortable-item-indicator-drag-over-top {
+      &::before {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        top: -3px;
+        border-bottom: 2px solid #5295e7;
+        content: '';
+        z-index: 1;
+      }
+    }
+    &.sortable-item-indicator-drag-over,
+    &.sortable-item-indicator-drag-over-bottom {
+      &::after {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -1px;
+        border-bottom: 2px solid #5295e7;
+        content: '';
+        z-index: 1;
       }
     }
   }
