@@ -1,3 +1,5 @@
+import { DragCondition } from '@asany/sortable';
+
 export type TreeNode = {
   key: string;
   icon?: React.ReactNode;
@@ -34,6 +36,10 @@ export type TreeViewProps = {
    * 是否允许拖拽时放置在该节点
    */
   allowDrop?: AllowDropFunc;
+  /**
+   * 是否可以拖拽
+   */
+  draggable?: DragCondition;
   /**
    * dragenter 触发时调用
    */
@@ -117,6 +123,7 @@ export interface SelectEvent extends TreeEvent {
 export type TreeDataState = {
   version: number;
   onDrop?: any;
+  draggable: DragCondition;
   allowDrop?: AllowDropFunc;
   treeData: Map<string, NodeData>;
   selectedKeys: string[];
@@ -128,6 +135,7 @@ export type TreeDataState = {
 export type TreeDataProviderProps = {
   version: number;
   allowDrop?: AllowDropFunc;
+  draggable: DragCondition;
   onDrop?: OnDrop;
   onDragEnter?: OnDragEnter;
   onExpand?: OnExpand;

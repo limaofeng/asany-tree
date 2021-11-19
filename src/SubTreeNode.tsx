@@ -66,6 +66,7 @@ const SubTreeNode = ({
   className,
   style,
   onDrop,
+  draggable,
   allowDrop,
   onChange: handleChange,
 }: any) => {
@@ -74,6 +75,7 @@ const SubTreeNode = ({
       items={items}
       mode="indicator"
       onDrop={onDrop}
+      draggable={draggable}
       allowDrop={allowDrop}
       itemRender={itemRender}
       pos={pos}

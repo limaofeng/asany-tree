@@ -110,6 +110,7 @@ const nodeRender = React.forwardRef(function (
             !isNaN(dropPosition) && dropPosition < index,
         })}
         onDrop={context.getState().onDrop}
+        draggable={context.getState().draggable}
         allowDrop={context.getState().allowDrop}
         itemClassName={classnames(className, {})}
         itemStyle={style}
@@ -164,6 +165,7 @@ function TreeView(props: TreeViewProps) {
     defaultSelectedKeys = [],
     onDrop,
     allowDrop,
+    draggable = false,
     onExpand,
     onDragEnter,
     iconRender,
@@ -299,6 +301,7 @@ function TreeView(props: TreeViewProps) {
       state={{
         treeData,
         version: 0,
+        draggable: draggable,
         selectedKeys: defaultSelectedKeys!,
         expandedKeys: defaultExpandedKeys!,
       }}
@@ -310,6 +313,7 @@ function TreeView(props: TreeViewProps) {
       onSelect={onSelect}
       onClick={onClick}
       onDrop={handleDrop}
+      draggable={draggable}
       allowDrop={handleAllowDrop}
       onDragEnter={onDragEnter}
       onExpand={onExpand}
@@ -318,6 +322,7 @@ function TreeView(props: TreeViewProps) {
         items={data as any}
         mode="indicator"
         onDrop={handleDrop}
+        draggable={draggable}
         allowDrop={handleAllowDrop}
         className={classnames(className, 'asany-treeview')}
         itemRender={nodeRender}

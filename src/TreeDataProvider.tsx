@@ -217,6 +217,7 @@ function TreeDataProvider(props: TreeDataProviderProps) {
     selectedKeys,
     version,
     onClick,
+    draggable,
     allowDrop,
     onDrop,
     onDragEnter,
@@ -229,6 +230,7 @@ function TreeDataProvider(props: TreeDataProviderProps) {
     version,
     allowDrop,
     onDrop,
+    draggable,
     iconRender,
     contentRender,
   });
@@ -239,6 +241,13 @@ function TreeDataProvider(props: TreeDataProviderProps) {
     }
     store.dispatch({ type: 'update', payload: { iconRender } });
   }, [store, iconRender]);
+
+  useEffect(() => {
+    if (draggable === store.getState().draggable) {
+      return;
+    }
+    store.dispatch({ type: 'update', payload: { draggable } });
+  }, [store, draggable]);
 
   useEffect(() => {
     if (contentRender === store.getState().contentRender) {
