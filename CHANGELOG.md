@@ -1,3 +1,12 @@
+## [0.1.14](https://github.com/limaofeng/asany-tree/compare/v0.1.13...v0.1.14) (2021-11-19)
+
+
+### Features
+
+* 添加  draggable 属性 ([0635f8e](https://github.com/limaofeng/asany-tree/commit/0635f8e92c99b38172f64ea008d2c88c1322b455))
+
+
+
 ## [0.1.13](https://github.com/limaofeng/asany-tree/compare/v0.1.12...v0.1.13) (2021-11-13)
 
 
