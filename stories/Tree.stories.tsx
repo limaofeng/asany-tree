@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Meta, Story } from '@storybook/react';
 import Tree from '../src';
 import { DndProvider } from 'react-dnd';
@@ -53,6 +53,8 @@ const data = [
 
 const Template: Story<any> = (args) => {
   const [items, setItems] = useState<any[]>([]);
+  const [expandedKeys, setExpandedKeys] = useState<any[]>([]);
+  const [selectedKeys, setSelectedKeys] = useState<any[]>([]);
 
   const handleDragEnter = (e: any) => {
     console.log('DragEnter', e);
@@ -68,14 +70,49 @@ const Template: Story<any> = (args) => {
     setItems(data);
   }, []);
 
+  const handleClick = useCallback(
+    (key) => () => {
+      setSelectedKeys([key]);
+    },
+    []
+  );
+
+  const handleOpen = useCallback(
+    (keys: string[]) => () => {
+      setExpandedKeys(keys);
+    },
+    []
+  );
+
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Tree
-        treeData={items}
-        onSelect={handleSelect}
-        onDragEnter={handleDragEnter}
-      />
-    </DndProvider>
+    <div>
+      <DndProvider backend={HTML5Backend}>
+        <Tree
+          expandedKeys={expandedKeys}
+          treeData={items}
+          onSelect={handleSelect}
+          onDragEnter={handleDragEnter}
+          selectedKeys={selectedKeys}
+        />
+      </DndProvider>
+      <br />
+      <button onClick={handleClick('11')} style={{ marginRight: 10 }}>
+        设置选中 11
+      </button>
+      <button onClick={handleClick('5')} style={{ marginRight: 10 }}>
+        {' '}
+        设置选中 5{' '}
+      </button>
+      <br />
+      <div style={{ marginTop: 20 }}>
+        <button onClick={handleOpen(['1', '14'])} style={{ marginRight: 10 }}>
+          打开 1 / 14
+        </button>
+        <button onClick={handleOpen([])} style={{ marginRight: 10 }}>
+          关闭
+        </button>
+      </div>
+    </div>
   );
 };
 
