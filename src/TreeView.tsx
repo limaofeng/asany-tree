@@ -332,7 +332,6 @@ function TreeView(props: TreeViewProps) {
         allowDrop={handleAllowDrop}
         className={classnames(className, 'asany-treeview')}
         itemRender={nodeRender}
-        style={{ listStyle: 'none', padding: 0 }}
         accept={accept}
         tag={tag}
         onChange={() => {}}

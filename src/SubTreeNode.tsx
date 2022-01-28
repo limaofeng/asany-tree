@@ -80,7 +80,6 @@ const SubTreeNode = ({
       allowDrop={allowDrop}
       itemRender={itemRender}
       pos={pos}
-      style={{ listStyle: 'none', padding: 0 }}
       accept={['file', 'directory']}
       tag={
         <InternalContainer
