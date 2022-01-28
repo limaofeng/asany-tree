@@ -1,3 +1,12 @@
+## [0.1.18](https://github.com/limaofeng/asany-tree/compare/v0.1.17...v0.1.18) (2022-01-28)
+
+
+### Features
+
+* nodeRender 以函数方式使用 ([f4f11e1](https://github.com/limaofeng/asany-tree/commit/f4f11e1f042c7dfdf6c712a608462df5cdb99bf2))
+
+
+
 ## [0.1.17](https://github.com/limaofeng/asany-tree/compare/v0.1.16...v0.1.17) (2022-01-28)
 
 
