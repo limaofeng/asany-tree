@@ -1,3 +1,12 @@
+## [0.1.15](https://github.com/limaofeng/asany-tree/compare/v0.1.14...v0.1.15) (2022-01-28)
+
+
+### Features
+
+* 暴露 accept 与 tag 属性 ([8525186](https://github.com/limaofeng/asany-tree/commit/8525186483803823cb9069f6c6a7218b39dc106e))
+
+
+
 ## [0.1.14](https://github.com/limaofeng/asany-tree/compare/v0.1.13...v0.1.14) (2021-11-19)
 
 

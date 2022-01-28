@@ -34,11 +34,11 @@ export type TreeViewProps = {
   /**
    * React-Dnd Drop 的 accept 默认为 sortable-card
    */
-  accept: string[];
+  accept?: string[];
   /**
    * 标签
    */
-  tag: SortableTag;
+  tag?: SortableTag;
   /**
    * 数据
    */
