@@ -1,3 +1,12 @@
+## [0.1.17](https://github.com/limaofeng/asany-tree/compare/v0.1.16...v0.1.17) (2022-01-28)
+
+
+### Features
+
+*  支持 nodeRender 设置 ([3c77d4b](https://github.com/limaofeng/asany-tree/commit/3c77d4b0abf78314794d8d16b90a2176d78cfe7a))
+
+
+
 ## [0.1.16](https://github.com/limaofeng/asany-tree/compare/v0.1.15...v0.1.16) (2022-01-28)
 
 
