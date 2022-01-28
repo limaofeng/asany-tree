@@ -150,20 +150,22 @@ function TreeNode(props: TreeNodeProps, ref: any) {
   }
 
   if (nodeRender) {
-    return React.createElement(nodeRender, {
-      onClick: handleClick,
-      ref,
-      data,
-      className: classnames(
-        'asany-treeview-node',
-        className,
-        `level-${level}`,
-        {
-          sub_selected: subSelected,
-          selected: selected,
-        }
-      ),
-    });
+    return nodeRender(
+      {
+        onClick: handleClick,
+        data,
+        className: classnames(
+          'asany-treeview-node',
+          className,
+          `level-${level}`,
+          {
+            sub_selected: subSelected,
+            selected: selected,
+          }
+        ),
+      },
+      ref
+    );
   }
 
   return (
