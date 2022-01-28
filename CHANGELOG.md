@@ -1,3 +1,12 @@
+## [0.1.19](https://github.com/limaofeng/asany-tree/compare/v0.1.18...v0.1.19) (2022-01-28)
+
+
+### Bug Fixes
+
+* 去掉 Sortable 的默认样式 ([9491d5f](https://github.com/limaofeng/asany-tree/commit/9491d5f1476d98fc0e0d6c8f316faf7b56ef320d))
+
+
+
 ## [0.1.18](https://github.com/limaofeng/asany-tree/compare/v0.1.17...v0.1.18) (2022-01-28)
 
 
