@@ -156,6 +156,8 @@ function flat(datas: NodeData[], parent?: NodeData) {
 
 function TreeView(props: TreeViewProps) {
   const {
+    tag,
+    accept = ['file', 'directory'],
     onClick,
     onSelect,
     className,
@@ -327,8 +329,8 @@ function TreeView(props: TreeViewProps) {
         className={classnames(className, 'asany-treeview')}
         itemRender={nodeRender}
         style={{ listStyle: 'none', padding: 0 }}
-        accept={['file', 'directory']}
-        tag="div"
+        accept={accept}
+        tag={tag}
         onChange={() => {}}
       />
     </TreeDataProvider>

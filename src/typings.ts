@@ -1,4 +1,4 @@
-import { DragCondition } from '@asany/sortable';
+import { DragCondition, SortableTag } from '@asany/sortable';
 
 export type TreeNode = {
   key: string;
@@ -31,6 +31,17 @@ export type ContentRender = (
 ) => React.ReactNode;
 
 export type TreeViewProps = {
+  /**
+   * React-Dnd Drop 的 accept 默认为 sortable-card
+   */
+  accept: string[];
+  /**
+   * 标签
+   */
+  tag: SortableTag;
+  /**
+   * 数据
+   */
   treeData: TreeNode[];
   /**
    * 是否允许拖拽时放置在该节点
