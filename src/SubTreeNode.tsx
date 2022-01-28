@@ -24,7 +24,7 @@ const InternalContainer = forwardRef(
     boxRef: any
   ) => {
     const opened = useSelector((state) => state.expandedKeys.includes(nodeKey));
-
+    const nodeContentRender = useSelector((state) => state.nodeRender);
     return (
       <div
         key={itemData.id}
@@ -34,6 +34,7 @@ const InternalContainer = forwardRef(
         <TreeNode
           rowIndex={rowIndex}
           data={itemData}
+          nodeRender={nodeContentRender}
           isDirectory={!!itemData.children?.length}
           nodeKey={nodeKey}
           ref={itemRef}

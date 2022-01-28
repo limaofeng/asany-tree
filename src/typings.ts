@@ -18,6 +18,8 @@ export type NodeData = TreeNode & {
   [key: string]: any;
 };
 
+export type NodeRender = any;
+
 export type IconRender = (
   node: TreeNode,
   state: { isDirectory: boolean; opened: boolean }
@@ -59,6 +61,10 @@ export type TreeViewProps = {
    * 图标渲染
    */
   iconRender?: IconRender;
+  /**
+   * 节点渲染
+   */
+  nodeRender?: NodeRender;
   /**
    * 内容渲染
    */
@@ -139,6 +145,7 @@ export type TreeDataState = {
   treeData: Map<string, NodeData>;
   selectedKeys: string[];
   expandedKeys: string[];
+  nodeRender?: any;
   iconRender?: IconRender;
   contentRender?: ContentRender;
 };
@@ -158,6 +165,7 @@ export type TreeDataProviderProps = {
   onSelect?: EventCallback<SelectEvent>;
   onOpenChange?: OpenCallback;
   iconRender?: IconRender;
+  nodeRender?: any;
   contentRender?: ContentRender;
 };
 

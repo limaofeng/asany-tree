@@ -15,6 +15,7 @@ type TreeNodeProps = {
   style?: CSSProperties;
   children?: React.ReactNode;
   isDirectory: boolean;
+  nodeRender?: any;
 };
 
 function renderIndentGuide(
@@ -60,7 +61,15 @@ function defaultContentRender(node: NodeData) {
 }
 
 function TreeNode(props: TreeNodeProps, ref: any) {
-  const { level, className, isDirectory, nodeKey, data, rowIndex } = props;
+  const {
+    level,
+    className,
+    isDirectory,
+    nodeKey,
+    data,
+    rowIndex,
+    nodeRender,
+  } = props;
 
   const context = useTreeDataContext();
   const opened = useSelector((state) => state.expandedKeys.includes(nodeKey));
@@ -137,6 +146,23 @@ function TreeNode(props: TreeNodeProps, ref: any) {
           state.treeData.get(key)?.parentKey === item.key &&
           !state.expandedKeys.includes(key)
       );
+    });
+  }
+
+  if (nodeRender) {
+    return React.createElement(nodeRender, {
+      onClick: handleClick,
+      ref,
+      data,
+      className: classnames(
+        'asany-treeview-node',
+        className,
+        `level-${level}`,
+        {
+          sub_selected: subSelected,
+          selected: selected,
+        }
+      ),
     });
   }
 

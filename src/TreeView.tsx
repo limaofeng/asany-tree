@@ -63,6 +63,7 @@ const nodeRender = React.forwardRef(function (
   const node = (data as any) as NodeData;
   const dragging = useSortableSelector((state) => state.dragging);
   const context = useTreeDataContext();
+  const nodeContentRender = useSelector((state) => state.nodeRender);
 
   useSelector((state) => state.version);
 
@@ -127,6 +128,7 @@ const nodeRender = React.forwardRef(function (
       isDirectory={false}
       level={level}
       rowIndex={index}
+      nodeRender={nodeContentRender}
       ref={itemRef}
       className={classnames(className, {
         'sortable-item-indicator-drag-over-bottom': indicator > 0,
@@ -159,6 +161,7 @@ function TreeView(props: TreeViewProps) {
     tag,
     accept = ['file', 'directory'],
     onClick,
+    nodeRender: nodeContentRender,
     onSelect,
     className,
     expandedKeys,
@@ -307,6 +310,7 @@ function TreeView(props: TreeViewProps) {
         selectedKeys: defaultSelectedKeys!,
         expandedKeys: defaultExpandedKeys!,
       }}
+      nodeRender={nodeContentRender}
       iconRender={iconRender}
       contentRender={contentRender}
       version={version}

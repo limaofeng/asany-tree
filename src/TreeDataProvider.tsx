@@ -222,6 +222,7 @@ function TreeDataProvider(props: TreeDataProviderProps) {
     onDrop,
     onDragEnter,
     onSelect,
+    nodeRender,
     iconRender,
     contentRender,
   } = props;
@@ -231,6 +232,7 @@ function TreeDataProvider(props: TreeDataProviderProps) {
     allowDrop,
     onDrop,
     draggable,
+    nodeRender,
     iconRender,
     contentRender,
   });
