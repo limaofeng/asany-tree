@@ -143,7 +143,7 @@ function flat(datas: NodeData[], parent?: NodeData) {
   const nodes: NodeData[] = [];
   for (const node of datas) {
     (node as any).id = node.key;
-    (node as any).type = 'directory';
+    (node as any).type = (node as any).type || 'directory';
     node.parentKey = parent?.key;
     node._path = parent?._path ? parent._path + node.key + '/' : node.key + '/';
     node.level = node._path.split('/').length - 1;

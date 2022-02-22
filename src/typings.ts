@@ -6,6 +6,8 @@ export type TreeNode = {
   title: React.ReactNode;
   isLeaf?: boolean;
   children?: TreeNode[];
+  type?: string;
+  [key: string]: any;
 };
 
 export type NodeData = TreeNode & {
