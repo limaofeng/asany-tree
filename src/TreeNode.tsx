@@ -126,6 +126,7 @@ function TreeNode(props: TreeNodeProps, ref: any) {
     }
     const parentSelectNodes = state.expandedKeys
       .map((key) => state.treeData!.get(key)!)
+      .filter((item) => !!item)
       .filter((item) => {
         return my._path!.startsWith(item._path!);
       });
