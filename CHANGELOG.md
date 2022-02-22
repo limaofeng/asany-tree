@@ -1,3 +1,12 @@
+## [0.1.20](https://github.com/limaofeng/asany-tree/compare/v0.1.19...v0.1.20) (2022-02-22)
+
+
+### Bug Fixes
+
+* 解决 expandedKeys 不在 treeData 时报错 ([912d09b](https://github.com/limaofeng/asany-tree/commit/912d09b5e5f39435f8bd3ee87f5452d8f40a49fe))
+
+
+
 ## [0.1.19](https://github.com/limaofeng/asany-tree/compare/v0.1.18...v0.1.19) (2022-01-28)
 
 
