@@ -1,3 +1,12 @@
+## [0.1.21](https://github.com/limaofeng/asany-tree/compare/v0.1.20...v0.1.21) (2022-02-22)
+
+
+### Bug Fixes
+
+* 解决 type 覆盖问题 ([770ea11](https://github.com/limaofeng/asany-tree/commit/770ea111053dabf9d3b250f5dc32f4c18644d164))
+
+
+
 ## [0.1.20](https://github.com/limaofeng/asany-tree/compare/v0.1.19...v0.1.20) (2022-02-22)
 
 
