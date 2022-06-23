@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import AsanySortable, {
+  AllowDropInfo,
   SortableItemProps,
   useSortableSelector,
 } from '@asany/sortable';
@@ -60,21 +61,22 @@ const nodeRender = React.forwardRef(function (
   }: SortableItemProps<any>,
   itemRef: any
 ) {
-  const node = (data as any) as NodeData;
+  const node = data as any as NodeData;
   const dragging = useSortableSelector((state) => state.dragging);
   const context = useTreeDataContext();
   const nodeContentRender = useSelector((state) => state.nodeRender);
 
   useSelector((state) => state.version);
 
-  drag(itemRef);
+  console.log('drag', drag);
+  drag && drag(itemRef);
 
   const dropPosition = useMemo(() => {
-    if (!itemRef.current?.getBoundingClientRect()) {
+    if (!itemRef?.current?.getBoundingClientRect()) {
       return NaN;
     }
     return getDropPosition(
-      itemRef.current?.getBoundingClientRect(),
+      itemRef?.current?.getBoundingClientRect(),
       data,
       dragging,
       indicator,
@@ -87,7 +89,7 @@ const nodeRender = React.forwardRef(function (
     if (!isNaN(indicator)) {
       context.emit('dragenter', {
         key: data.id,
-        node: ({ ...data } as any) as NodeData,
+        node: { ...data } as any as NodeData,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -261,7 +263,7 @@ function TreeView(props: TreeViewProps) {
     [onDrop]
   );
 
-  const handleAllowDrop = useCallback((e) => {
+  const handleAllowDrop = useCallback((e: AllowDropInfo) => {
     if (isNaN(e.dropPosition)) {
       return false;
     }
@@ -334,6 +336,7 @@ function TreeView(props: TreeViewProps) {
         itemRender={nodeRender}
         accept={accept}
         tag={tag}
+        preview={(data) => React.createElement(nodeRender, { data } as any)}
         onChange={() => {}}
       />
     </TreeDataProvider>

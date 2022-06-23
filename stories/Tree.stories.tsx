@@ -71,7 +71,7 @@ const Template: Story<any> = (args) => {
   }, []);
 
   const handleClick = useCallback(
-    (key) => () => {
+    (key: string) => () => {
       setSelectedKeys([key]);
     },
     []

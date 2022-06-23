@@ -61,15 +61,8 @@ function defaultContentRender(node: NodeData) {
 }
 
 function TreeNode(props: TreeNodeProps, ref: any) {
-  const {
-    level,
-    className,
-    isDirectory,
-    nodeKey,
-    data,
-    rowIndex,
-    nodeRender,
-  } = props;
+  const { level, className, isDirectory, nodeKey, data, rowIndex, nodeRender } =
+    props;
 
   const context = useTreeDataContext();
   const opened = useSelector((state) => state.expandedKeys.includes(nodeKey));
