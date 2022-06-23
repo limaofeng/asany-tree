@@ -1,3 +1,12 @@
+## [0.1.22](https://github.com/limaofeng/asany-tree/compare/v0.1.21...v0.1.22) (2022-06-23)
+
+
+### Features
+
+* 升级依赖 ([7a30bad](https://github.com/limaofeng/asany-tree/commit/7a30bad5174c0ca74dd6bc7bb80b869996e89380))
+
+
+
 ## [0.1.21](https://github.com/limaofeng/asany-tree/compare/v0.1.20...v0.1.21) (2022-02-22)
 
 
