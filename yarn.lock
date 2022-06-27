@@ -10,10 +10,10 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@asany/sortable@^0.1.32":
-  version "0.1.32"
-  resolved "https://registry.yarnpkg.com/@asany/sortable/-/sortable-0.1.32.tgz#48dedf726c11d50bb1f46f304cb722997f0733f7"
-  integrity sha512-DR7gT1jTHnzRNNv67o+qW4d14U7WMIpq/fbBCqUl1NYyezeDJSF1dOgA1/vu0QsZIQbocvEPL9w93hKvit+tNw==
+"@asany/sortable@^0.1.36":
+  version "0.1.36"
+  resolved "https://registry.npmjs.org/@asany/sortable/-/sortable-0.1.36.tgz#98d865d7f109aa8ae5ec296e99dbd9a06b42c372"
+  integrity sha512-BaY8SpIVHVE5sQOGly4cY1pYhj7+2YPYrtYtdlT5vIszz8HzW44Epxepjwt+olhTVZmu2Y8n+RAiUT+u/e+RNA==
   dependencies:
     classnames "^2.3.1"
     immutability-helper "^3.1.1"

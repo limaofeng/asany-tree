@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import AsanySortable from '@asany/sortable';
+import AsanySortable, { dragPreview } from '@asany/sortable';
 import classnames from 'classnames';
 
 import { useSelector } from './TreeDataProvider';
@@ -92,6 +92,7 @@ const SubTreeNode = ({
           itemStyle={style}
         />
       }
+      preview={dragPreview(itemRender)}
       onChange={handleChange}
     />
   );

@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import AsanySortable, {
   AllowDropInfo,
   SortableItemProps,
+  dragPreview,
   useSortableSelector,
 } from '@asany/sortable';
 import classnames from 'classnames';
@@ -68,7 +69,6 @@ const nodeRender = React.forwardRef(function (
 
   useSelector((state) => state.version);
 
-  console.log('drag', drag);
   drag && drag(itemRef);
 
   const dropPosition = useMemo(() => {
@@ -336,7 +336,7 @@ function TreeView(props: TreeViewProps) {
         itemRender={nodeRender}
         accept={accept}
         tag={tag}
-        preview={(data) => React.createElement(nodeRender, { data } as any)}
+        preview={dragPreview(nodeRender)}
         onChange={() => {}}
       />
     </TreeDataProvider>
