@@ -1,3 +1,12 @@
+## [0.1.23](https://github.com/limaofeng/asany-tree/compare/v0.1.22...v0.1.23) (2022-06-27)
+
+
+### Features
+
+* 拖拽时的，预览逻辑调整 ([7f95887](https://github.com/limaofeng/asany-tree/commit/7f95887b26016f09506676f92629e0281c82f02e))
+
+
+
 ## [0.1.22](https://github.com/limaofeng/asany-tree/compare/v0.1.21...v0.1.22) (2022-06-23)
 
 
