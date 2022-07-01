@@ -173,6 +173,7 @@ function TreeView(props: TreeViewProps) {
     onDrop,
     allowDrop,
     draggable = false,
+    indent = 8,
     onExpand,
     onDragEnter,
     iconRender,
@@ -307,6 +308,7 @@ function TreeView(props: TreeViewProps) {
     <TreeDataProvider
       state={{
         treeData,
+        indent,
         version: 0,
         draggable: draggable,
         selectedKeys: defaultSelectedKeys!,

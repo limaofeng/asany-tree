@@ -91,6 +91,7 @@ const Template: Story<any> = (args) => {
           expandedKeys={expandedKeys}
           treeData={items}
           draggable={true}
+          indent={8}
           onSelect={handleSelect}
           onDragEnter={handleDragEnter}
           selectedKeys={selectedKeys}

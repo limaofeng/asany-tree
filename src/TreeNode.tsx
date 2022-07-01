@@ -21,6 +21,7 @@ type TreeNodeProps = {
 function renderIndentGuide(
   nodeKey: string,
   size: number,
+  indentNumber: number,
   hasIndentActive: (index: number) => void
 ) {
   const indents = [];
@@ -31,7 +32,7 @@ function renderIndentGuide(
         className={classnames('indent-guide', {
           active: hasIndentActive(i),
         })}
-        style={{ width: 8 }}
+        style={{ width: indentNumber, marginLeft: i > 0 ? 8 : undefined }}
       />
     );
   }
@@ -84,6 +85,8 @@ function TreeNode(props: TreeNodeProps, ref: any) {
       return state.treeData.get(key)?._path!.startsWith(path!);
     });
   });
+
+  const indentNumber = useSelector((state) => state.indent);
 
   const iconRender = useSelector(
     (state) => state.iconRender || defaultIconRender
@@ -184,11 +187,18 @@ function TreeNode(props: TreeNodeProps, ref: any) {
       )}
     >
       <div className="monaco-tl-row">
-        <div className="monaco-tl-indent" style={{ width: (level - 1) * 8 }}>
-          {renderIndentGuide(nodeKey, level - 1, hasIndentActive)}
+        <div
+          className="monaco-tl-indent"
+          style={{
+            width: (level - 1) * (indentNumber + 8),
+          }}
+        >
+          {renderIndentGuide(nodeKey, level - 1, indentNumber, hasIndentActive)}
         </div>
         <div
-          style={{ paddingLeft: level * 8 - 2 }}
+          style={{
+            paddingLeft: level * indentNumber - 2 + (level - 1) * 8,
+          }}
           className="monaco-tl-twistie codicon codicon-tree-item-expanded collapsible"
           onClick={isDirectory ? toggleDisplay : undefined}
         >

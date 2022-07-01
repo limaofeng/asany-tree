@@ -82,6 +82,7 @@ export type TreeViewProps = {
   className?: string;
   selectedKeys?: string[];
   expandedKeys?: string[];
+  indent?: number;
   defaultSelectedKeys?: string[];
   defaultExpandedKeys?: string[];
   onSelect?: EventCallback<SelectEvent>;
@@ -142,6 +143,7 @@ export interface SelectEvent extends TreeEvent {
 export type TreeDataState = {
   version: number;
   onDrop?: any;
+  indent: number;
   draggable: DragCondition;
   allowDrop?: AllowDropFunc;
   treeData: Map<string, NodeData>;
