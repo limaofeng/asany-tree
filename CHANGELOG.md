@@ -1,3 +1,12 @@
+## [0.1.24](https://github.com/limaofeng/asany-tree/compare/v0.1.23...v0.1.24) (2022-07-01)
+
+
+### Bug Fixes
+
+* 解决拖拽 `NaN` is an invalid 警告 ([f8174b0](https://github.com/limaofeng/asany-tree/commit/f8174b0d46593556050dd6babdc0b39adf8c5678))
+
+
+
 ## [0.1.23](https://github.com/limaofeng/asany-tree/compare/v0.1.22...v0.1.23) (2022-06-27)
 
 
