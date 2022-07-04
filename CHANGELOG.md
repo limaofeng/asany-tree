@@ -1,3 +1,12 @@
+## [0.1.26](https://github.com/limaofeng/asany-tree/compare/v0.1.25...v0.1.26) (2022-07-04)
+
+
+### Features
+
+* drop 添加 toIndex ([b366f5e](https://github.com/limaofeng/asany-tree/commit/b366f5ebf40b39abb7281620a7e38ecca3b0cd83))
+
+
+
 ## [0.1.25](https://github.com/limaofeng/asany-tree/compare/v0.1.24...v0.1.25) (2022-07-01)
 
 
