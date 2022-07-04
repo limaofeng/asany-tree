@@ -227,7 +227,7 @@ function TreeView(props: TreeViewProps) {
         };
 
         // Find dragObject
-        let dragObj: any;
+        let dragObj: any, toIndex;
         loop(newTreeData, dragKey, (item: any, index: number, arr: any[]) => {
           arr.splice(index, 1);
           dragObj = item;
@@ -239,15 +239,16 @@ function TreeView(props: TreeViewProps) {
             item.children = item.children || [];
             item.children.push(dragObj!);
             item.children = [...item.children];
+            toIndex = item.children.length - 1;
           });
         } else {
           let parentKey;
           loop(newTreeData, dropKey, (item, index, arr) => {
             parentKey = item.parentKey;
             if (dropPosition === -1) {
-              arr.splice(index, 0, dragObj);
+              arr.splice((toIndex = index), 0, dragObj);
             } else {
-              arr.splice(index + 1, 0, dragObj);
+              arr.splice((toIndex = index + 1), 0, dragObj);
             }
           });
           if (parentKey) {
@@ -256,7 +257,7 @@ function TreeView(props: TreeViewProps) {
             });
           }
         }
-        onDrop && onDrop({ ...e, dropPosition: _dropPosition });
+        onDrop && onDrop({ ...e, dropPosition: _dropPosition, toIndex });
         return newTreeData;
       });
       setVersion((i) => ++i);
