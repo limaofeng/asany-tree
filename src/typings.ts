@@ -115,6 +115,7 @@ export interface DropEvent extends TreeEvent {
   dragNode: NodeData;
   dropPosition: number;
   toIndex: number;
+  toParentKey: string;
 }
 
 export type OnDrop = EventCallback<DropEvent>;
