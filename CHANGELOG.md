@@ -1,3 +1,12 @@
+## [0.1.28](https://github.com/limaofeng/asany-tree/compare/v0.1.27...v0.1.28) (2022-07-07)
+
+
+### Bug Fixes
+
+* 为 DropEvent  添加 toParentKey ([ab82e4d](https://github.com/limaofeng/asany-tree/commit/ab82e4d548d6f282eaac3167eeea4ac8c47428ca))
+
+
+
 ## [0.1.27](https://github.com/limaofeng/asany-tree/compare/v0.1.26...v0.1.27) (2022-07-07)
 
 
