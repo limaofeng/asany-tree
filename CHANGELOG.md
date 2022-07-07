@@ -1,3 +1,12 @@
+## [0.1.27](https://github.com/limaofeng/asany-tree/compare/v0.1.26...v0.1.27) (2022-07-07)
+
+
+### Bug Fixes
+
+* 优化 expand 逻辑 ([5a738ea](https://github.com/limaofeng/asany-tree/commit/5a738eaaefa06858bcb48ff8c6e51677b7cdace5))
+
+
+
 ## [0.1.26](https://github.com/limaofeng/asany-tree/compare/v0.1.25...v0.1.26) (2022-07-04)
 
 
