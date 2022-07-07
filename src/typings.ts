@@ -87,7 +87,6 @@ export type TreeViewProps = {
   defaultExpandedKeys?: string[];
   onSelect?: EventCallback<SelectEvent>;
   onClick?: EventCallback<ClickEvent>;
-  onOpenChange?: OpenCallback;
 };
 
 export interface TreeEvent {
@@ -125,9 +124,7 @@ interface ExpandEvent extends TreeEvent {
   node: NodeData;
 }
 
-export type OnExpand = (expandedKeys: string, e: ExpandEvent) => void;
-
-export type OpenCallback = (openKeys: string[]) => void;
+export type OnExpand = (expandedKeys: string[], e: ExpandEvent) => void;
 
 export type EventCallback<T extends TreeEvent> = (e: T) => void;
 
@@ -168,7 +165,6 @@ export type TreeDataProviderProps = {
   state: TreeDataState;
   onClick?: EventCallback<ClickEvent>;
   onSelect?: EventCallback<SelectEvent>;
-  onOpenChange?: OpenCallback;
   iconRender?: IconRender;
   nodeRender?: any;
   contentRender?: ContentRender;

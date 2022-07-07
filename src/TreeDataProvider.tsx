@@ -15,6 +15,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import {
   AllowDropInfo,
   NodeData,
+  OnExpand,
   SubscribeCallback,
   TreeDataAction,
   TreeDataProviderProps,
@@ -22,7 +23,6 @@ import {
 } from './typings';
 import type {
   EventCallback,
-  OpenCallback,
   SelectEvent,
   TreeDataState,
   TreeEvent,
@@ -104,21 +104,21 @@ class TreeDataStoreContext {
   }
   on<E extends TreeEvent>(
     eventName: TREE_EVENT_NAMES,
-    callback: EventCallback<E> | OpenCallback
+    callback: EventCallback<E> | OnExpand
   ) {
     this._eventEmitter.on(eventName, callback);
     return () => this.off(eventName, callback);
   }
   off<E extends TreeEvent>(
     eventName: TREE_EVENT_NAMES,
-    callback: EventCallback<E> | OpenCallback
+    callback: EventCallback<E> | OnExpand
   ) {
     this._eventEmitter.off(eventName, callback);
   }
   dispatchSubscribe() {
     this._listeners.forEach((listener) => listener());
   }
-  openChange(openKey: string, closeKeys: string[]) {
+  expand(openKey: string | undefined, closeKeys: string[], e: any) {
     this.dispatch({
       type: 'trigger',
       payload: {
@@ -126,7 +126,7 @@ class TreeDataStoreContext {
         closeKeys,
       },
     });
-    this._eventEmitter.emit(TREE_EVENT_EXPANDED, this._state.expandedKeys);
+    this._eventEmitter.emit(TREE_EVENT_EXPANDED, this._state.expandedKeys, e);
   }
   select(key: string, e: React.MouseEvent) {
     this.dispatch({
@@ -220,6 +220,7 @@ function TreeDataProvider(props: TreeDataProviderProps) {
     draggable,
     allowDrop,
     onDrop,
+    onExpand,
     onDragEnter,
     onSelect,
     nodeRender,
@@ -299,6 +300,13 @@ function TreeDataProvider(props: TreeDataProviderProps) {
     }
     return store.on('dragenter', onDragEnter);
   }, [store, onDragEnter]);
+
+  useEffect(() => {
+    if (!onExpand) {
+      return;
+    }
+    return store.on(TREE_EVENT_EXPANDED, onExpand);
+  }, [store, onExpand]);
 
   useEffect(() => {
     if (!onSelect) {

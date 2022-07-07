@@ -102,15 +102,17 @@ function TreeNode(props: TreeNodeProps, ref: any) {
         e.preventDefault();
       }
       if (opened) {
-        context.dispatch({
-          type: 'trigger',
-          payload: {
-            openKey: undefined,
-            closeKeys: [nodeKey],
-          },
+        context.expand(undefined, [nodeKey], {
+          expanded: false,
+          e,
+          key: nodeKey,
         });
       } else {
-        context.openChange(nodeKey, []);
+        context.expand(nodeKey, [], {
+          expanded: true,
+          source_event: e,
+          node: data,
+        });
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
